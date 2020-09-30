@@ -3,88 +3,97 @@
 @{
     ViewData["Title"] = "Index";
 }
+<head>
+    <script type="text/javascript" src="~/js/DarkMode.js" async></script>
+    <link rel="stylesheet" href="/css/product.css" />
+</head>
 
 <h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table table-sm table-hover table-striped table-responsive">
-    <thead>
-        <tr>
-            <th scope="col">
-               ID
-            </th>
-            <th scope="col">
-                Name
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.QuantityPerUnit)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.UnitPrice)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.UnitsInStock)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.UnitsOnOrder)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.ReorderLevel)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Discontinued)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th scope="col">
-                @Html.DisplayNameFor(model => model.Supplier)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody .table-hover>
-        @foreach(var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QuantityPerUnit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UnitPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UnitsInStock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UnitsOnOrder)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReorderLevel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Discontinued)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a><br />
-                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a><br />
-                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
+<Button id="dark">Dark Mode.</Button>
+<div class="row d-flex justify-content-center">
+    <table id="#productTable" class="table table-sm table-hover table-striped table-responsive table-bordered text-center">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuantityPerUnit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UnitPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UnitsInStock)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UnitsOnOrder)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReorderLevel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Discontinued)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Supplier)
+                </th>
+                <th>
+                    Controls
+                </th>
+            </tr>
+        </thead>
+        <tbody .table-hover>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.ProductId)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.QuantityPerUnit)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.UnitPrice)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.UnitsInStock)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.UnitsOnOrder)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.ReorderLevel)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.Discontinued)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                    </td>
+                    <td class="align-middle">
+                        @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
+                    </td>
+                    <td class="text-center d-inline-flex px-5">
+                        <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-primary m-1 p-4 icon-edit"></a>
+                        <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-success m-1 p-4 icon-details"></a>
+                        <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger m-1 p-4 icon-delete"></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
