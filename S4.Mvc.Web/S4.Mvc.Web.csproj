@@ -18,4 +18,8 @@
     <ProjectReference Include="..\S4.DataAccess\S4.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\img\aspit_logo.png" />
+  </ItemGroup>
+
 </Project>
