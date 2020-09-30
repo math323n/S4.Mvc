@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-using S4.Mvc.Aspnet.Models;
+using S4.Mvc.Web.Models;
 
-namespace S4.Mvc.Aspnet.Controllers
+namespace S4.Mvc.Web.Controllers
 {
     public class HomeController: Controller
     {

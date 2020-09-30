@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace S4.Mvc.Aspnet
+namespace S4.Mvc.Web
 {
     public class Program
     {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+
 using S4.DataAccess.Base;
 using S4.Entities.Models;
 using System.Collections.Generic;

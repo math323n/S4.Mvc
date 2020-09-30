@@ -1,6 +1,6 @@
 using System;
 
-namespace S4.Mvc.Aspnet.Models
+namespace S4.Mvc.Web.Models
 {
     public class ErrorViewModel
     {
