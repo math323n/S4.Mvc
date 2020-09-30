@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table table-sm">
+<table class="table table-sm table-hover table-striped table-responsive">
     <thead>
         <tr>
             <th scope="col">
@@ -80,8 +80,8 @@
                 @Html.DisplayFor(modelItem => item.Supplier.CompanyName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> 
-                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a>
+                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a><br />
+                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a><br />
                 <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
             </td>
         </tr>

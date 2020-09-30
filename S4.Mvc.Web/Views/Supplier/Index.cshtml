@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table table-sm">
+<table class="table table-sm table-striped table-responsive">
     <thead>
         <tr>
             <th scope="col">
@@ -54,45 +54,45 @@
     <tbody .table-hover>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td scope="row">
                 @Html.DisplayFor(modelItem => item.SupplierId)
             </td>
-            <td>
+            <td scope="row">
                 @Html.DisplayFor(modelItem => item.CompanyName)
             </td>
-            <td>
+            <td scope="row">
                 @Html.DisplayFor(modelItem => item.ContactName)
             </td>
-            <td>
+            <td scope="row">
                 @Html.DisplayFor(modelItem => item.ContactTitle)
             </td>
-            <td>
+            <td scope="row">
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
-            <td>
+            <td scope="row">
                 @Html.DisplayFor(modelItem => item.City)
             </td>
-            <td>
+            <td scope="row">
                 @Html.DisplayFor(modelItem => item.Region)
             </td>
-            <td>
+            <td scope="row">
                 @Html.DisplayFor(modelItem => item.PostalCode)
             </td>
-            <td>
+            <td scope="row">
                 @Html.DisplayFor(modelItem => item.Country)
             </td>
-            <td>
+            <td scope="row">
                 @Html.DisplayFor(modelItem => item.Phone)
             </td>
-            <td>
+            <td scope="row">
                 @Html.DisplayFor(modelItem => item.Fax)
             </td>
-            <td>
+            <td scope="row">
                 @Html.DisplayFor(modelItem => item.HomePage)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.SupplierId">Edit</a>
-                <a asp-action="Details" asp-route-id="@item.SupplierId">Details</a>
+            <td scope="row" >
+                <a asp-action="Edit" asp-route-id="@item.SupplierId">Edit</a> <br />
+                <a asp-action="Details" asp-route-id="@item.SupplierId">Details</a><br />
                 <a asp-action="Delete" asp-route-id="@item.SupplierId">Delete</a>
             </td>
         </tr>
