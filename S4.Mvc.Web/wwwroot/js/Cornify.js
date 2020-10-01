@@ -1,5 +1,6 @@
 ﻿const pressed = [];
 const secretCode = 'autist';
+const button = document.querySelector("#cornify");
 
 window.addEventListener('keyup', (e) => {
     console.log(e.key);
@@ -11,3 +12,5 @@ window.addEventListener('keyup', (e) => {
     }
     console.log(pressed);
 });
+
+button.addEventListener('click', cornify_add(), false)
