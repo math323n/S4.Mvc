@@ -15,7 +15,6 @@
     </a>
 </p>
 <div class="row d-flex justify-content-center ">
-    <div class="col-10">
         <table class="table table-sm table-hover table-striped table-responsive table-bordered text-center">
             <thead>
                 <tr>
@@ -26,10 +25,10 @@
                         Name
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.ContactName)
+                        Contact person
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.ContactTitle)
+                        Title
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Address)
@@ -41,7 +40,7 @@
                         @Html.DisplayNameFor(model => model.Region)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.PostalCode)
+                        Postal code
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Country)
@@ -94,7 +93,7 @@
                         <td class="align-middle">
                             @Html.DisplayFor(modelItem => item.Fax)
                         </td>
-                        <td class="align-middle">
+                        <td class="align-middle>
                             @Html.DisplayFor(modelItem => item.HomePage)
                         </td>
                         <td class="text-center d-inline-flex px-5">
@@ -122,5 +121,4 @@
                 }
             </tbody>
         </table>
-    </div>
 </div>
