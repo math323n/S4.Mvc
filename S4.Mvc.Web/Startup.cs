@@ -1,16 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using S4.DataAccess;
 using S4.DataAccess.Base;
 using S4.Entities.Models;
+using S4.Entities.Models.Context;
 
 namespace S4.Mvc.Web
 {
@@ -30,6 +27,9 @@ namespace S4.Mvc.Web
 
             services.AddScoped<IRepositoryBase<Product>, ProductRepository>();
             services.AddScoped<IRepositoryBase<Supplier>, SupplierRepository>();
+            services.AddScoped<IRepositoryBase<Category>, RepositoryBase<Category>>();
+            services.AddScoped<DbContext, NorthwindContext>();
+            services.AddScoped<ISupplierRepository, SupplierRepository>();
 
         }
 

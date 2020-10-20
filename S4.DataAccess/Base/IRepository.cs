@@ -12,8 +12,6 @@ namespace S4.DataAccess.Base
     /// <typeparam name="T"></typeparam>
     public interface IRepositoryBase<T>
     {
-        NorthwindContext Context { get; set; }
-
         Task AddAsync(T t);
         Task<T> GetByIdAsync(int? id);
         Task<IEnumerable<T>> GetAllAsync();

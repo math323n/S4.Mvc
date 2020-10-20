@@ -14,32 +14,15 @@ namespace S4.DataAccess.Base
         /// <summary>
         /// Database context
         /// </summary>
-        protected NorthwindContext context;
+        protected readonly DbContext context;
 
         /// <summary>
         /// Sets the context to the provided parameter item
         /// </summary>
         /// <param name="context"></param>
-        public RepositoryBase(NorthwindContext context)
+        public RepositoryBase(DbContext context)
         {
-            Context = context;
-        }
-
-        /// <summary>
-        /// Initializes the context
-        /// </summary>
-        public RepositoryBase()
-        {
-            context = new NorthwindContext();
-        }
-
-        /// <summary>
-        /// The database context
-        /// </summary>
-        public virtual NorthwindContext Context
-        {
-            get { return context; }
-            set { context = value; }
+            this.context = context;
         }
 
         /// <summary>
