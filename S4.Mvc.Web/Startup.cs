@@ -28,8 +28,9 @@ namespace S4.Mvc.Web
         {
             services.AddControllersWithViews();
 
-            services.AddScoped<ProductRepository>();
-            services.AddScoped<RepositoryBase<Supplier>>();
+            services.AddScoped<IRepositoryBase<Product>, ProductRepository>();
+            services.AddScoped<IRepositoryBase<Supplier>, SupplierRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

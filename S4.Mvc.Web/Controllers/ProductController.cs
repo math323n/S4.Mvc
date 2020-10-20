@@ -11,9 +11,9 @@ namespace S4.Mvc.Web.Controllers
 {
     public class ProductController: Controller
     {
-        private readonly ProductRepository repository;
+        private readonly IRepositoryBase<Product> repository;
 
-        public ProductController(ProductRepository productRepository)
+        public ProductController(IRepositoryBase<Product> productRepository)
         {
             repository = productRepository;
         }

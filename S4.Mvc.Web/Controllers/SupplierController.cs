@@ -9,9 +9,9 @@ namespace S4.Mvc.Web.Controllers
 {
     public class SupplierController : Controller
     {
-        private readonly RepositoryBase<Supplier> repository;
+        private readonly IRepositoryBase<Supplier> repository;
 
-        public SupplierController(RepositoryBase<Supplier> supplierRepository)
+        public SupplierController(IRepositoryBase<Supplier> supplierRepository)
         {
             repository = supplierRepository;
         }
