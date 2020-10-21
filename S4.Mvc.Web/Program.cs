@@ -7,8 +7,6 @@ namespace S4.Mvc.Web
 {
     public class Program
     {
-        private static IContainer Container { get; set; }
-
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();

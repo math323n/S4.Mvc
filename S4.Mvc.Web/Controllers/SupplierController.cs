@@ -2,9 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
 using S4.DataAccess;
-using S4.DataAccess.Base;
 using S4.Entities.Models;
 
 namespace S4.Mvc.Web.Controllers

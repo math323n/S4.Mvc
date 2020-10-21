@@ -12,7 +12,6 @@ using S4.DataAccess;
 using S4.DataAccess.Base;
 using S4.Entities.Models;
 using S4.Entities.Models.Context;
-
 using System;
 
 namespace S4.Mvc.Web
@@ -39,7 +38,6 @@ namespace S4.Mvc.Web
                  .AddEntityFrameworkStores<NorthwindContext>();
             services.AddControllersWithViews();
             
-
             services.AddRazorPages();
             services.AddControllers();
 
@@ -54,9 +52,6 @@ namespace S4.Mvc.Web
 
             IContainer container = builder.Build();
             return new AutofacServiceProvider(container);
-
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
