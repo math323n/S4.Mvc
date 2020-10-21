@@ -23,7 +23,10 @@ namespace S4.Mvc.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(connection));
             services.AddControllersWithViews();
+            
 
             services.AddScoped<IRepositoryBase<Product>, ProductRepository>();
             services.AddScoped<IRepositoryBase<Supplier>, SupplierRepository>();
