@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
+using S4.DataAccess;
 using S4.DataAccess.Base;
 using S4.Entities.Models;
 
@@ -9,18 +11,18 @@ namespace S4.Mvc.Web.Controllers
 {
     public class SupplierController : Controller
     {
-        private readonly IRepositoryBase<Supplier> repository;
+        private readonly ISupplierRepository repo;
 
-        public SupplierController(IRepositoryBase<Supplier> supplierRepository)
+        public SupplierController(ISupplierRepository supplierRepository)
         {
-            repository = supplierRepository;
+            repo = supplierRepository;
         }
 
 
         // GET: Supplier
         public async Task<IActionResult> Index()
         {
-            IEnumerable<Supplier> suppliers = await repository.GetAllAsync();
+            IEnumerable<Supplier> suppliers = await repo.GetAllAsync();
 
             return View(suppliers);
         }
@@ -33,7 +35,7 @@ namespace S4.Mvc.Web.Controllers
                 return NotFound();
             }
 
-            Supplier supplier = await repository.GetByIdAsync(id);
+            Supplier supplier = await repo.GetByIdAsync(id);
 
             if(supplier == null)
             {
@@ -58,7 +60,7 @@ namespace S4.Mvc.Web.Controllers
         {
             if(ModelState.IsValid)
             {
-                await repository.AddAsync(supplier);
+                await repo.AddAsync(supplier);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -74,7 +76,7 @@ namespace S4.Mvc.Web.Controllers
                 return NotFound();
             }
 
-            Supplier supplier = await repository.GetByIdAsync(id);
+            Supplier supplier = await repo.GetByIdAsync(id);
 
             if(supplier == null)
             {
@@ -100,7 +102,7 @@ namespace S4.Mvc.Web.Controllers
             {
                 try
                 {
-                    await repository.UpdateAsync(supplier);
+                    await repo.UpdateAsync(supplier);
                 }
                 catch(DbUpdateConcurrencyException)
                 {
@@ -127,7 +129,7 @@ namespace S4.Mvc.Web.Controllers
                 return NotFound();
             }
 
-            Supplier supplier = await repository.GetByIdAsync(id);
+            Supplier supplier = await repo.GetByIdAsync(id);
 
             if(supplier == null)
             {
@@ -142,16 +144,16 @@ namespace S4.Mvc.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            Supplier supplier = await repository.GetByIdAsync(id);
+            Supplier supplier = await repo.GetByIdAsync(id);
 
-            await repository.DeleteAsync(supplier);
+            await repo.DeleteAsync(supplier);
 
             return RedirectToAction(nameof(Index));
         }
 
         private async Task<bool> SupplierExistsAsync(int id)
         {
-            Supplier supplier = await repository.GetByIdAsync(id);
+            Supplier supplier = await repo.GetByIdAsync(id);
 
             return supplier != null;
         }

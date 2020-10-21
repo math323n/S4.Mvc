@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace S4.Entities.Models
 {
-    public partial class Supplier
+    public partial class Supplier : ISupplier
     {
         public Supplier()
         {

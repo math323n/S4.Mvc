@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace S4.DataAccess
 {
-    public class ProductRepository: RepositoryBase<Product>
+    public class ProductRepository : RepositoryBase<Product>, IProductRepository
     {
         public ProductRepository(DbContext context) : base(context)
         {

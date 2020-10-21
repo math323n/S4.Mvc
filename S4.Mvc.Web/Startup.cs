@@ -1,5 +1,9 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +12,8 @@ using S4.DataAccess;
 using S4.DataAccess.Base;
 using S4.Entities.Models;
 using S4.Entities.Models.Context;
+
+using System;
 
 namespace S4.Mvc.Web
 {
@@ -21,18 +27,35 @@ namespace S4.Mvc.Web
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            // Store connection string to database
             string connection = Configuration.GetConnectionString("DefaultConnection");
+            // Add context using connection string
             services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(connection));
+
+            services.AddMvc();
+            services.AddIdentityCore<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                 .AddEntityFrameworkStores<NorthwindContext>();
             services.AddControllersWithViews();
             
 
-            services.AddScoped<IRepositoryBase<Product>, ProductRepository>();
-            services.AddScoped<IRepositoryBase<Supplier>, SupplierRepository>();
-            services.AddScoped<IRepositoryBase<Category>, RepositoryBase<Category>>();
-            services.AddScoped<DbContext, NorthwindContext>();
-            services.AddScoped<ISupplierRepository, SupplierRepository>();
+            services.AddRazorPages();
+            services.AddControllers();
+
+            ContainerBuilder builder = new ContainerBuilder();
+
+            builder.RegisterType<ProductRepository>().As<IProductRepository>();
+            builder.RegisterType<RepositoryBase<Category>>().As<IRepositoryBase<Category>>();
+            builder.RegisterType<NorthwindContext>().As<DbContext>();
+            builder.RegisterType<UserStore>();
+            builder.RegisterType<SupplierRepository>().As<ISupplierRepository>();
+            builder.Populate(services);
+
+            IContainer container = builder.Build();
+            return new AutofacServiceProvider(container);
+
+
 
         }
 

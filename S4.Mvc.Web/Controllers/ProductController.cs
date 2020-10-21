@@ -11,12 +11,11 @@ namespace S4.Mvc.Web.Controllers
 {
     public class ProductController: Controller
     {
-        private readonly IRepositoryBase<Product> productRepo;
+        private readonly IProductRepository productRepo;
         private readonly IRepositoryBase<Category> categoryRepo;
         private readonly ISupplierRepository supplierRepo;
-
         public ProductController(
-            IRepositoryBase<Product> productRepo,
+            IProductRepository productRepo,
             IRepositoryBase<Category> categoryRepo,
             ISupplierRepository supplierRepo)
         {
