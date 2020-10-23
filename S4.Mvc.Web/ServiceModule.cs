@@ -1,0 +1,24 @@
+﻿using Autofac;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using S4.DataAccess;
+using S4.DataAccess.Base;
+using S4.Entities.Models;
+using S4.Entities.Models.Context;
+
+namespace S4.Mvc.Web
+{
+    public class ServiceModule : Module
+    {
+        protected override void Load(ContainerBuilder builder)
+        {
+            base.Load(builder);
+
+            builder.RegisterType<ProductRepository>().As<IProductRepository>();
+            builder.RegisterType<RepositoryBase<Category>>().As<IRepositoryBase<Category>>();
+            builder.RegisterType<NorthwindContext>().As<DbContext>();
+            builder.RegisterType<UserStore>();
+            builder.RegisterType<SupplierRepository>().As<ISupplierRepository>();
+        }
+    }
+}

@@ -1,4 +1,5 @@
 using Autofac;
+using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,20 +38,17 @@ namespace S4.Mvc.Web
             services.AddIdentityCore<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                  .AddEntityFrameworkStores<NorthwindContext>();
             services.AddControllersWithViews();
-            
             services.AddRazorPages();
             services.AddControllers();
+            services.AddLogging();
 
             ContainerBuilder builder = new ContainerBuilder();
 
-            builder.RegisterType<ProductRepository>().As<IProductRepository>();
-            builder.RegisterType<RepositoryBase<Category>>().As<IRepositoryBase<Category>>();
-            builder.RegisterType<NorthwindContext>().As<DbContext>();
-            builder.RegisterType<UserStore>();
-            builder.RegisterType<SupplierRepository>().As<ISupplierRepository>();
+            builder.RegisterModule<ServiceModule>();
             builder.Populate(services);
 
             IContainer container = builder.Build();
+
             return new AutofacServiceProvider(container);
         }
 

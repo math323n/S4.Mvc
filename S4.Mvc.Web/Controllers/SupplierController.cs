@@ -15,8 +15,7 @@ namespace S4.Mvc.Web.Controllers
         {
             repo = supplierRepository;
         }
-
-
+        
         // GET: Supplier
         public async Task<IActionResult> Index()
         {

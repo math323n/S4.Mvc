@@ -1,4 +1,3 @@
-using System;
 
 namespace S4.Mvc.Web.Models
 {
