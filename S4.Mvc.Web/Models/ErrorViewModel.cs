@@ -5,6 +5,12 @@ namespace S4.Mvc.Web.Models
     {
         public string RequestId { get; set; }
 
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+        public bool ShowRequestId
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(RequestId);
+            }
+        }
     }
 }
