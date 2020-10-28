@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using S4.Entities.Models.Context;
-
 using System;
 
 namespace S4.Mvc.Web
