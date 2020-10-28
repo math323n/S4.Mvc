@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "S4.DataAccess", "S4.DataAcc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "S4.Entities", "S4.Entities\S4.Entities.csproj", "{18B4CA56-8588-42E9-8C1A-9642EBB02E90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S4.Mvc.Web", "S4.Mvc.Web\S4.Mvc.Web.csproj", "{5BB8C84C-862D-45F6-874B-BBB020E13722}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "S4.Mvc.Web", "S4.Mvc.Web\S4.Mvc.Web.csproj", "{5BB8C84C-862D-45F6-874B-BBB020E13722}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
